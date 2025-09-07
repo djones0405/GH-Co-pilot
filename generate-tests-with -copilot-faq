@@ -1,0 +1,149 @@
+# Guide: Creating Your Own Test Framework
+
+Building a custom test framework is a powerful way to understand software testing and tailor testing to your project's needs. This guide will walk you through the core components, best practices, and a simple example in Python—but the concepts apply to any language.
+
+---
+
+## 1. **What is a Test Framework?**
+
+A test framework is a set of tools, libraries, and conventions that help you:
+- **Define** tests (units, integration, etc.)
+- **Discover** test cases automatically
+- **Run** tests and collect results
+- **Report** pass/fail status and diagnostics
+
+Popular examples: `pytest`, `unittest` (Python), `Jest` (JavaScript), `JUnit` (Java).
+
+---
+
+## 2. **Core Components of a Test Framework**
+
+1. **Test Case Definition**
+   - How do users declare tests? (Functions, classes, decorators, special names, etc.)
+2. **Test Discovery**
+   - How does the framework find all tests in the codebase?
+3. **Test Runner**
+   - How are tests executed? (Sequentially? In parallel?)
+4. **Assertions**
+   - What API is provided for checks? (e.g., `assertEqual`, `assertTrue`)
+5. **Reporting**
+   - How are results displayed? (console output, files, HTML, etc.)
+6. **Fixtures (optional)**
+   - How to set up and tear down test environments?
+7. **Plugins/Extensions (optional)**
+   - How can the framework be extended?
+
+---
+
+## 3. **Design Decisions**
+
+- **Language:** What language will you use? (This guide uses Python for clarity.)
+- **Test Style:** Function-based, class-based, or both?
+- **Discovery Mechanism:** By file naming, decorators, or conventions?
+- **Parallel Execution:** Needed or not?
+- **Extensibility:** Should users write plugins?
+
+---
+
+## 4. **Minimal Example: Python Test Framework**
+
+Below is a minimal Python test framework you can expand upon.
+
+```python name=tinytest.py
+import inspect
+import sys
+
+class TestResult:
+    def __init__(self):
+        self.passed, self.failed = 0, 0
+        self.failures = []
+
+    def add_success(self):
+        self.passed += 1
+
+    def add_failure(self, name, exc):
+        self.failed += 1
+        self.failures.append((name, exc))
+
+def assert_equal(a, b):
+    if a != b:
+        raise AssertionError(f"{a} != {b}")
+
+def discover_tests(module):
+    return [name for name, obj in inspect.getmembers(module)
+            if inspect.isfunction(obj) and name.startswith("test_")]
+
+def run_tests(module):
+    result = TestResult()
+    for name in discover_tests(module):
+        try:
+            getattr(module, name)()
+            result.add_success()
+            print(f"✅ {name}")
+        except Exception as e:
+            result.add_failure(name, e)
+            print(f"❌ {name} - {e}")
+    print(f"\nPassed: {result.passed}, Failed: {result.failed}")
+    if result.failed:
+        print("\nFailures:")
+        for name, exc in result.failures:
+            print(f" - {name}: {exc}")
+
+if __name__ == "__main__":
+    # Import the test file as a module
+    test_file = sys.argv[1]
+    module = __import__(test_file.replace('.py', ''))
+    run_tests(module)
+```
+
+**How to use:**
+1. Create a file called `test_example.py`:
+    ```python
+    from tinytest import assert_equal
+
+    def test_add():
+        assert_equal(1 + 1, 2)
+
+    def test_fail():
+        assert_equal(2 * 2, 5)
+    ```
+2. Run:  
+   ```
+   python tinytest.py test_example.py
+   ```
+
+---
+
+## 5. **Expanding Your Framework**
+
+- **Add more assertions:** `assert_true`, `assert_in`, etc.
+- **Support setup/teardown:** Use fixtures or special functions.
+- **Test discovery in directories:** Recursively load test files.
+- **Parallel test execution:** Use `concurrent.futures` or similar.
+- **Better reporting:** Color output, HTML reports, etc.
+- **Mocking/stubbing:** Integrate or create mocking utilities.
+- **CLI:** Add options for test selection, verbosity, etc.
+
+---
+
+## 6. **Best Practices**
+
+- Stick to clear conventions (e.g., test function names start with `test_`).
+- Keep the core simple and extensible.
+- Document how to write and run tests.
+- Consider interoperability with existing tools.
+- Encourage community contributions if open source.
+
+---
+
+## 7. **Further Reading & Inspiration**
+
+- [pytest internals](https://docs.pytest.org/en/stable/example/simple.html)
+- [unittest documentation](https://docs.python.org/3/library/unittest.html)
+- [How to Build Your Own Test Framework (Blog)](https://medium.com/@luke.hoban/build-your-own-unit-testing-framework-pt-1-2b4d52c8f85d)
+- [Jest’s source code](https://github.com/facebook/jest)
+
+---
+
+**Conclusion:**  
+Creating a test framework is a great learning project. Start simple, iterate, and add features as you discover needs. You’ll gain a deep understanding of testing and software tooling!
