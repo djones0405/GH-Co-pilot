@@ -1,0 +1,115 @@
+# GitHub Copilot Chat Commands: Details and Examples
+
+Below is a list of official Copilot Chat commands, what each does, and how to use them in practice.
+
+---
+
+## `/explain`
+**Purpose:** Explains the selected code or the code in your current file.
+- **How to use:** Highlight code in the editor, then type `/explain` in Copilot Chat.
+- **Example usage:**  
+  - Select a function, type: `/explain`  
+  - Or: `/explain Why is this code written this way?`
+
+---
+
+## `/fix`
+**Purpose:** Attempts to fix errors or improve the quality of the selected code.
+- **How to use:** Highlight problematic code, then type `/fix` in Copilot Chat.
+- **Example usage:**  
+  - Select a block with a bug, type: `/fix`  
+  - Or: `/fix Can you resolve the errors in this code?`
+
+---
+
+## `/generate-tests`
+**Purpose:** Generates tests for selected code or the current file.
+- **How to use:** Highlight code you want tests for, then type `/generate-tests` in Copilot Chat.
+- **Example usage:**  
+  - Select a function, type: `/generate-tests`  
+  - Or: `/generate-tests Create unit tests for the selected function.`
+
+---
+
+## `/docs`
+**Purpose:** Generates documentation for selected code or the current file.
+- **How to use:** Highlight code that needs docs, then type `/docs` in Copilot Chat.
+- **Example usage:**  
+  - Select a class, type: `/docs`  
+  - Or: `/docs Add docstrings to the selected function.`
+
+---
+
+## `/vuln`
+**Purpose:** Identifies possible security vulnerabilities in selected code or the current file.
+- **How to use:** Highlight code you want checked, then type `/vuln` in Copilot Chat.
+- **Example usage:**  
+  - Select a function, type: `/vuln`  
+  - Or: `/vuln Are there any security issues in this code?`
+
+---
+
+## `/tests`
+**Purpose:** Finds and summarizes tests related to the selected code or file.
+- **How to use:** Highlight code, then type `/tests` in Copilot Chat.
+- **Example usage:**  
+  - Select a method, type: `/tests`  
+  - Or: `/tests Show me the tests that cover this function.`
+
+---
+
+## `/list`
+**Purpose:** Lists functions, classes, or methods in the current file.
+- **How to use:** Place your cursor anywhere in the file, then type `/list` in Copilot Chat.
+- **Example usage:**  
+  - `/list`  
+  - Or: `/list Show all classes and methods in this file.`
+
+---
+
+## `/explain-symbol`
+**Purpose:** Explains a specific symbol (function, class, or variable) in your codebase.
+- **How to use:** Type `/explain-symbol <symbolName>` in Copilot Chat.
+- **Example usage:**  
+  - `/explain-symbol fetchUserData`  
+  - Or: `/explain-symbol What does the MainController class do?`
+
+---
+
+## `/repo`
+**Purpose:** Answers questions about your entire repository, not just the current file.
+- **How to use:** Type your question after `/repo` in Copilot Chat.
+- **Example usage:**  
+  - `/repo How does authentication work here?`  
+  - `/repo Where is the main entry point of this app?`
+
+---
+
+## `/open-pr`
+**Purpose:** Summarizes or explains details about an open pull request.
+- **How to use:** In a PR context, type `/open-pr` in Copilot Chat.
+- **Example usage:**  
+  - `/open-pr`  
+  - `/open-pr What changes does this PR make?`
+
+---
+
+## `/help`
+**Purpose:** Lists all available Copilot Chat commands in your environment.
+- **How to use:** Type `/help` in Copilot Chat.
+- **Example usage:**  
+  - `/help`
+
+---
+
+## Tips
+- Most commands work best when you select code before running them.
+- You can always use natural language with or without a slash command for more context.
+- `/help` gives a real-time list of supported commands in your IDE or on GitHub.com.
+
+---
+
+**Note:**  
+Slash commands and their availability can vary by IDE (VS Code, JetBrains, GitHub.com) and by whether you’ve selected code or are in a special context (like a PR).
+
+For the latest full list, type `/help` in your Copilot Chat interface.
