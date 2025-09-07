@@ -1,0 +1,97 @@
+# Fundamentals of Software Testing
+
+Software testing is the process of evaluating and verifying that a software application or system works as intended. It is a vital part of the software development lifecycle, ensuring quality, reliability, and user satisfaction.
+
+---
+
+## 1. **What is Testing?**
+
+Testing is executing a program with the intent of finding errors or verifying that it behaves as expected. It helps ensure that the software:
+- Works correctly (meets requirements)
+- Is reliable and robust
+- Is maintainable and scalable
+
+---
+
+## 2. **Why is Testing Important?**
+
+- **Detects Bugs Early:** Catches problems before software is released
+- **Reduces Costs:** Fixing bugs earlier is cheaper than after deployment
+- **Improves Quality:** Builds trust with users and stakeholders
+- **Prevents Regressions:** Ensures new changes do not break existing features
+
+---
+
+## 3. **Types of Testing**
+
+- **Manual Testing:** Testers execute tests by hand, following test cases or exploratory testing.
+- **Automated Testing:** Tests are written as code and run automatically by tools or frameworks.
+
+### *Common Levels of Testing:*
+- **Unit Testing:** Tests individual units (functions, methods, classes) in isolation.
+- **Integration Testing:** Tests interactions between multiple units or components.
+- **System Testing:** Tests the complete, integrated system as a whole.
+- **End-to-End (E2E) Testing:** Tests the application flow from start to finish, simulating real user scenarios.
+- **Acceptance Testing:** Verifies the system meets business requirements (often done by users or QA).
+
+---
+
+## 4. **Key Concepts**
+
+- **Test Case:** A set of inputs, execution steps, and expected results to verify a specific behavior.
+- **Test Suite:** A collection of test cases grouped together.
+- **Test Runner:** A tool or framework that executes tests and reports results.
+- **Assertion:** A statement in a test that checks if a condition is true (e.g., `assert a == b`).
+- **Test Coverage:** A measure of how much of your code is tested.
+
+---
+
+## 5. **Popular Testing Frameworks**
+
+- **Python:** `pytest`, `unittest`
+- **JavaScript:** `Jest`, `Mocha`
+- **Java:** `JUnit`, `TestNG`
+- **Go:** `testing` package
+- **C#:** `NUnit`, `xUnit`
+
+---
+
+## 6. **Best Practices**
+
+- Write tests as you develop code (test-driven development is one approach)
+- Keep tests independent and repeatable
+- Use descriptive names for test cases
+- Cover both normal and edge cases
+- Review and update tests as code changes
+- Run tests automatically (Continuous Integration)
+
+---
+
+## 7. **Common Pitfalls**
+
+- Not writing enough tests (low coverage)
+- Writing tests that are too tightly coupled to implementation details
+- Not maintaining or updating tests
+- Ignoring failed tests ("flaky" tests)
+
+---
+
+## 8. **Glossary**
+
+- **Bug:** An error, flaw, or fault in software.
+- **Regression:** A bug introduced after a code change that breaks previously working functionality.
+- **Fixture:** Setup and teardown code to prepare the test environment.
+- **Mock/Stub:** Fake implementations used to isolate the unit under test.
+
+---
+
+## 9. **Further Reading**
+
+- [Software Testing Glossary (ISTQB)](https://glossary.istqb.org/en/search)
+- [Testing Pyramid](https://martinfowler.com/bliki/TestPyramid.html)
+- [Test-Driven Development (TDD)](https://en.wikipedia.org/wiki/Test-driven_development)
+
+---
+
+**Summary:**  
+Testing is essential for building correct, reliable, and maintainable software. Understanding the basics—and making testing part of your workflow—will lead to higher quality code and fewer surprises in production.
